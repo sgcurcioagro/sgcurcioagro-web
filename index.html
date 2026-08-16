@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SGAgro</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ===================== TELA DE LOGIN ===================== -->
+  <div id="tela-login" class="login-screen">
+    <div class="login-card">
+      <div class="login-brand">
+        <div class="mark">SG<span>Agro</span></div>
+        <div class="tagline">Acompanhamento por sensoriamento remoto</div>
+      </div>
+
+      <form id="form-login">
+        <label>
+          E-mail
+          <input type="email" id="login-email" required autocomplete="username" />
+        </label>
+        <label>
+          Senha
+          <input type="password" id="login-senha" required autocomplete="current-password" />
+        </label>
+        <button type="submit">Entrar</button>
+        <div id="login-erro" class="login-erro"></div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ===================== APP (só aparece após login) ===================== -->
+  <div class="app" id="app" style="display:none">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="mark">SG<span>Agro</span></div>
+        <div class="tagline">Acompanhamento do ciclo</div>
+      </div>
+
+      <div class="nav-block">
+        <div class="nav-label">Suas lavouras</div>
+        <div id="relatorios-list"></div>
+      </div>
+
+      <button id="btn-sair" class="btn-sair">Sair</button>
+    </aside>
+
+    <main class="main" id="main-content">
+      <div class="empty-state">Selecione uma lavoura na lista ao lado.</div>
+    </main>
+  </div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
