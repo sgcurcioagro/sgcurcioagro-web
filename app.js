@@ -1,4 +1,4 @@
-const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
 let relatorios = [];
 let relatorioAtivo = null;
@@ -20,7 +20,7 @@ document.getElementById("form-login").addEventListener("submit", async (e) => {
   const erroEl = document.getElementById("login-erro");
   erroEl.textContent = "";
 
-  const { error } = await supabase.auth.signInWithPassword({ email, password: senha });
+  const { error } = await supabaseClient.auth.signInWithPassword({ email, password: senha });
 
   if (error) {
     erroEl.textContent = "E-mail ou senha incorretos.";
@@ -31,12 +31,12 @@ document.getElementById("form-login").addEventListener("submit", async (e) => {
 });
 
 document.getElementById("btn-sair").addEventListener("click", async () => {
-  await supabase.auth.signOut();
+  await supabaseClient.auth.signOut();
   location.reload();
 });
 
 async function verificarSessao() {
-  const { data } = await supabase.auth.getSession();
+  const { data } = await supabaseClient.auth.getSession();
 
   if (data.session) {
     iniciarApp();
@@ -56,7 +56,7 @@ async function iniciarApp() {
 }
 
 async function carregarRelatorios() {
-  const { data, error } = await supabase
+  const { data, error } = await supabaseClient
     .from("relatorios")
     .select("*, lavouras(nome)")
     .order("criado_em", { ascending: false });
@@ -159,7 +159,7 @@ async function renderizarMapa(r) {
     urlImagemAtual = null;
   }
 
-  const { data: blob, error } = await supabase.storage.from("mapas").download(r.png_path);
+  const { data: blob, error } = await supabaseClient.storage.from("mapas").download(r.png_path);
 
   if (error) {
     console.error("Erro ao baixar imagem:", error.message);
@@ -247,3 +247,5 @@ function renderizarHistograma(r) {
 }
 
 verificarSessao();
+
+ 
