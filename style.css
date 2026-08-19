@@ -36,7 +36,8 @@ html, body { margin: 0; padding: 0; background: var(--field); color: var(--ink);
 }
 
 .login-brand { text-align: center; margin-bottom: 28px; }
-.login-logo { width: 190px; height: auto; display: block; margin: 0 auto 8px; }
+.login-logo-card { background: #fff; border-radius: 12px; padding: 14px 18px; display: inline-block; margin-bottom: 10px; }
+.login-logo { width: 170px; height: auto; display: block; }
 .login-brand .tagline { font-size: 12px; color: var(--ink-soft); margin-top: 4px; }
 
 #form-login { display: flex; flex-direction: column; gap: 16px; }
@@ -76,8 +77,9 @@ html, body { margin: 0; padding: 0; background: var(--field); color: var(--ink);
   gap: 24px;
 }
 
-.sidebar-logo { width: 130px; height: auto; display: block; }
-.brand .tagline { font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: #b7ccb9; margin-top: 6px; }
+.sidebar-logo-card { background: #fff; border-radius: 10px; padding: 10px 12px; display: inline-block; }
+.sidebar-logo { width: 115px; height: auto; display: block; }
+.brand .tagline { font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: #b7ccb9; margin-top: 8px; }
 
 .nav-label { font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #93ab96; margin-bottom: 8px; }
 .nav-empty { font-size: 12.5px; color: #93ab96; }
